@@ -68,26 +68,30 @@ if [ -z "$package_update_flag" ] && [ -z "$speedtest_flag" ] && [ -z "$civitai_d
 fi
 
 # Install relevant packages
-# Install relevant packages
 if [ "$package_update_flag" == true ] || [ "$all_flag" == true ]; then
     echo "Updating package lists..."
-    apt-get update
-    # Check if speedtest-cli is installed and install if not
-    if ! command -v speedtest-cli &> /dev/null; then
-        echo "Installing speedtest-cli..."
-        # Before installing speedtest-cli, check for and handle the existing speedtest package
-        if dpkg -l | grep -qw speedtest; then
-            echo "Trying to remove existing 'speedtest' package to avoid conflicts..."
-            apt-get remove -y speedtest
-        fi
-        apt-get install -y speedtest-cli
-    else
-        echo "speedtest-cli is already installed."
+    sudo apt-get update
+    
+    # Ensure curl is installed
+    if ! command -v curl &> /dev/null; then
+        echo "Installing curl..."
+        sudo apt-get install -y curl
     fi
-    # Auto-yes the installation of curl
-    echo "Installing curl..."
-    apt-get install -y curl
+
+    # Check if the speedtest package by Ookla is installed
+    if ! command -v speedtest &> /dev/null; then
+        echo "Installing speedtest from Ookla..."
+
+        # Add Ookla's repository for the speedtest-cli
+        curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
+
+        # Install the speedtest package
+        sudo apt-get install -y speedtest
+    else
+        echo "Speedtest by Ookla is already installed."
+    fi
 fi
+
 
 
 # Define results file
