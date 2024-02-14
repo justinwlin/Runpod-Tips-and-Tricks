@@ -4,7 +4,7 @@ Why run this script? It is hard to debug a networking problem cause it can eithe
 
 If the speed is really slow on one of the sources you can use flags to skip that source and test the other sources. I do recommend at minimum test the speed-test-cli and a couple of the other download file sources.
 
-The test actually **will max out downloads at 5 minutes though and still capture information** so there is no need to skip it if you just wait for 5 minutes, but it is jus tan option.
+The test actually **will max out downloads at 5 minutes for every request and still capture information** so there is no need to skip it if you just wait for 5 minutes, but it is just an option. You don't need to worry about if you need to sit there for an hour waiting for it to finish. Every test will take a max of 5 mins, and as said before you can specify a the tests to run such as the speed test cli and a couple other sources if u don't want to test across the board.
 
 ## Options
 No flag provided will auto run the whole script
@@ -34,6 +34,7 @@ Run speed tests + run a variety of models + dump your ID of your Runpod so that 
 2. Downloads a model from civitai ~ 2GB
 3. Downloads a model from hugging face ~ 4.2GB
 3. Downloads 5GB from a 200GB model on S3 Bucket using parallel curl requests
+5. Download a 1GB file from broadband
 
 ## Potential Future Issues
 Civitai authors ocassionally require an auth token to download a model, but I tried to find one that doesn't have that issue.
@@ -41,6 +42,8 @@ Civitai authors ocassionally require an auth token to download a model, but I tr
 S3 Bucket Link is a link I used in the past for an ML dataset, hopefully the author doesn't take it down.
 
 HuggingFace can sometimes have issues, but this link I imagine should stay stable. Is always worth sanity checking if my script throws out weird errors like unable to download if the urls have become invalid.
+
+Broadband should hopefully stay stable
 
 ## How to Run
 Copy and paste the script as a .sh script onto your machine.
