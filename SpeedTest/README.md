@@ -32,6 +32,13 @@ Run speed tests + run a variety of models + dump your ID of your Runpod so that 
 3. Downloads a model from hugging face ~ 4.2GB
 3. Downloads 5GB from a 200GB model on S3 Bucket using parallel curl requests
 
+## Potential Future Issues
+Civitai authors ocassionally require an auth token to download a model, but I tried to find one that doesn't have that issue.
+
+S3 Bucket Link is a link I used in the past for an ML dataset, hopefully the author doesn't take it down.
+
+HuggingFace can sometimes have issues, but this link I imagine should stay stable. Is always worth sanity checking if my script throws out weird errors like unable to download if the urls have become invalid.
+
 ## How to Run
 Copy and paste the script as a .sh script onto your machine.
 
