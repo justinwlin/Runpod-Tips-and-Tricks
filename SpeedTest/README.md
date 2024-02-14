@@ -6,6 +6,11 @@ If the speed is really slow on one of the sources you can use flags to skip that
 
 The test actually **will max out downloads at 5 minutes for every request and still capture information** so there is no need to skip it if you just wait for 5 minutes, but it is just an option. You don't need to worry about if you need to sit there for an hour waiting for it to finish. Every test will take a max of 5 mins, and as said before you can specify a the tests to run such as the speed test cli and a couple other sources if u don't want to test across the board.
 
+## Quick Start
+```
+curl -s https://raw.githubusercontent.com/justinwlin/Runpod-Tips-and-Tricks/main/SpeedTest/speedtest.sh -o speedtest.sh && chmod +x speedtest.sh && ./speedtest.sh
+```
+
 ## Options
 No flag provided will auto run the whole script
 ```
