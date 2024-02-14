@@ -2,6 +2,8 @@
 ## Summary
 Why run this script? It is hard to debug a networking problem cause it can either be runpod or it can be the source of the data, or something in between. But if you run this script, it can help give a contrasting dataset to what you are experiencing with something else and let you know if it is just the source of the data or if it is the runpod (by allowing runpod to test against other data sources).
 
+If the speed is really slow, then I do recommend you can just cancel the script after it finishes doing a speedtest-cli and skip the rest of the script. Just cmd + c to cancel the script, or whatever your cancel command is in your terminal when you see the speedtest-cli results, but if you can get the other results, then it will also help give good comparisons.
+
 ## What the script will do
 Run speed tests + run a variety of models + dump your ID of your Runpod so that it is easier to check if something is wrong with your pod or wrong with your downstream source.
 
