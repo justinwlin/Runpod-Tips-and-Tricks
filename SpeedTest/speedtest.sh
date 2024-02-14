@@ -78,6 +78,12 @@ if [ "$package_update_flag" == true ] || [ "$all_flag" == true ]; then
         apt-get install -y curl
     fi
 
+    # Ensure ping is installed
+    if ! command -v ping &> /dev/null; then
+        echo "Installing iputils-ping..."
+        apt-get install -y iputils-ping
+    fi
+
     # Download and make executable the speedtest-cli Python script from Sivel's GitHub
     if ! command -v ./speedtest-cli &> /dev/null; then
         echo "Downloading and making executable the speedtest-cli Python script..."
@@ -104,6 +110,14 @@ download_file_and_log_speed() {
     local results_file=$2
     local max_time=300 # Maximum time in seconds for the download
     
+    # Extract the domain name from the URL
+    local domain=$(echo $url | awk -F/ '{print $3}')
+    
+    # Perform a ping test and log the results
+    echo "Pinging $domain..." >> "$results_file"
+
+    ping -c 5 $domain >> "$results_file"
+
     # Log the download initiation
     echo "Downloading file from: $url" >> "$results_file"
     
