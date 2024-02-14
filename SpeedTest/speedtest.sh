@@ -84,6 +84,12 @@ if [ "$package_update_flag" == true ] || [ "$all_flag" == true ]; then
         apt-get install -y iputils-ping
     fi
 
+    # Ensure traceroute is installed
+    if ! command -v traceroute &> /dev/null; then
+        echo "Installing traceroute..."
+        apt-get install -y traceroute
+    fi
+
     # Download and make executable the speedtest-cli Python script from Sivel's GitHub
     if ! command -v ./speedtest-cli &> /dev/null; then
         echo "Downloading and making executable the speedtest-cli Python script..."
@@ -117,6 +123,10 @@ download_file_and_log_speed() {
     echo "Pinging $domain..." >> "$results_file"
 
     ping -c 5 $domain >> "$results_file"
+
+     # Perform a traceroute and log the results
+    echo "Tracerouting $domain..." >> "$results_file"
+    traceroute $domain >> "$results_file"
 
     # Log the download initiation
     echo "Downloading file from: $url" >> "$results_file"
@@ -212,6 +222,18 @@ if [ "$s3_download_flag" == true ] || [ "$all_flag" == true ]; then
     # Define download URL and byte ranges for parallel connections
     download_url="https://netspresso-research-code-release.s3.us-east-2.amazonaws.com/data/improved_aesthetics_6.25plus/preprocessed_2256k.tar.gz"
     declare -a byte_ranges=("0-1250000000" "1250000001-2500000000" "2500000001-3750000000" "3750000001-5000000000")
+
+    # Extract the domain name from the URL
+    local domain=$(echo $download_url | awk -F/ '{print $3}')
+    
+    # Perform a ping test and log the results
+    echo "Pinging $domain..." >> "$results_file"
+    ping -c 5 $domain >> "$results_file"
+    
+    # Perform a traceroute and log the results
+    echo "Tracerouting $domain..." >> "$results_file"
+    traceroute $domain >> "$results_file"
+
     # Perform parallel download test
     thread_number=1
     for range in "${byte_ranges[@]}"; do
