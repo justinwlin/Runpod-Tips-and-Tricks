@@ -2,7 +2,23 @@
 ## Summary
 Why run this script? It is hard to debug a networking problem cause it can either be runpod or it can be the source of the data, or something in between. But if you run this script, it can help give a contrasting dataset to what you are experiencing with something else and let you know if it is just the source of the data or if it is the runpod (by allowing runpod to test against other data sources).
 
-If the speed is really slow, then I do recommend you can just cancel the script after it finishes doing a speedtest-cli and skip the rest of the script. Just cmd + c to cancel the script, or whatever your cancel command is in your terminal when you see the speedtest-cli results, but if you can get the other results, then it will also help give good comparisons.
+If the speed is really slow on one of the sources you can use flags to skip that source and test the other sources. I do recommend at minimum test the speed-test-cli and a couple of the other download file sources.
+
+## Options
+Usage: test.sh [options]
+
+Options:
+  -h, --help                Show this help message and exit.
+  -p, --package-update      Update package lists and install required packages.
+  -s, --speedtest           Perform speed tests with specified server IDs.
+  -c, --civitai             Download from Civitai and log the speed.
+  -f, --huggingface         Download from Hugging Face and log the speed.
+  -3, --s3                  Perform S3 parallel download test and log the speed.
+  -a, --all                 Run the entire script (default if no option is provided).
+
+Example:
+  test.sh -p -s -c -f            Update packages, perform speed tests, and download from Civitai and Hugging Face.
+  test.sh --all                  Run the entire script.
 
 ## What the script will do
 Run speed tests + run a variety of models + dump your ID of your Runpod so that it is easier to check if something is wrong with your pod or wrong with your downstream source.
