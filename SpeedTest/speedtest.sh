@@ -70,12 +70,12 @@ fi
 # Install relevant packages
 if [ "$package_update_flag" == true ] || [ "$all_flag" == true ]; then
     echo "Updating package lists..."
-    sudo apt-get update
+    apt-get update
     
     # Ensure curl is installed
     if ! command -v curl &> /dev/null; then
         echo "Installing curl..."
-        sudo apt-get install -y curl
+        apt-get install -y curl
     fi
 
     # Check if the speedtest package by Ookla is installed
@@ -83,10 +83,10 @@ if [ "$package_update_flag" == true ] || [ "$all_flag" == true ]; then
         echo "Installing speedtest from Ookla..."
 
         # Add Ookla's repository for the speedtest-cli
-        curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
+        curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | bash
 
         # Install the speedtest package
-        sudo apt-get install -y speedtest
+        apt-get install -y speedtest
     else
         echo "Speedtest by Ookla is already installed."
     fi
