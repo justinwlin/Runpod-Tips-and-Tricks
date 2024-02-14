@@ -5,6 +5,7 @@ Why run this script? It is hard to debug a networking problem cause it can eithe
 If the speed is really slow on one of the sources you can use flags to skip that source and test the other sources. I do recommend at minimum test the speed-test-cli and a couple of the other download file sources.
 
 ## Options
+'''
 Usage: test.sh [options]
 
 Options:
@@ -20,6 +21,7 @@ Example:
   test.sh -p -s -c -f            Update packages, perform speed tests, and download from Civitai and Hugging Face.
   test.sh --all                  Run the entire script.
 
+'''
 ## What the script will do
 Run speed tests + run a variety of models + dump your ID of your Runpod so that it is easier to check if something is wrong with your pod or wrong with your downstream source.
 
