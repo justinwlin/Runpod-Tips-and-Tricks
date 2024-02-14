@@ -1,2 +1,2 @@
-# Runpod-Tips-and-Tricks
-Runpod Tips and tricks repository
+# Summary
+Random collection of tips for runpod

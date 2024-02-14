@@ -1,4 +1,15 @@
 # Speed Testing Script
+## Summary
+Why run this script? It is hard to debug a networking problem cause it can either be runpod or it can be the source of the data, or something in between. But if you run this script, it can help give a contrasting dataset to what you are experiencing with something else and let you know if it is just the source of the data or if it is the runpod (by allowing runpod to test against other data sources).
+
+## What the script will do
+Run speed tests + run a variety of models + dump your ID of your Runpod so that it is easier to check if something is wrong with your pod or wrong with your downstream source.
+
+## Testing Methodology
+1. Runs a speed test against speedtest-cli
+2. Downloads a model from civitai ~ 2GB
+3. Downloads a model from hugging face ~ 4.2GB
+3. Downloads 5GB from a 200GB model on S3 Bucket using parallel curl requests
 
 ## How to Run
 Copy and paste the script as a .sh script onto your machine.
@@ -12,15 +23,6 @@ For example, I might run it as:
 ```
 bash speed_test.sh
 ```
-
-## What the script will do
-Run speed tests + run a variety of models + dump your ID of your Runpod so that it is easier to check if something is wrong with your pod or wrong with your downstream source.
-
-## Testing Methodology
-1. Runs a speed test against speedtest-cli
-2. Downloads a model from civitai ~ 2GB
-3. Downloads a model from hugging face ~ 4.2GB
-3. Downloads 5GB from a 200GB model on S3 Bucket using parallel curl requests
 
 ## Example Results for Comparison
 Example Speed Test Results:
