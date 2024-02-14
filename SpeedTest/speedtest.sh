@@ -78,21 +78,15 @@ if [ "$package_update_flag" == true ] || [ "$all_flag" == true ]; then
         apt-get install -y curl
     fi
 
-    # Check if the speedtest package by Ookla is installed
-    if ! command -v speedtest &> /dev/null; then
-        echo "Installing speedtest from Ookla..."
-
-        # Add Ookla's repository for the speedtest-cli
-        curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | bash
-
-        # Install the speedtest package
-        apt-get install -y speedtest
+    # Download and make executable the speedtest-cli Python script from Sivel's GitHub
+    if ! command -v ./speedtest-cli &> /dev/null; then
+        echo "Downloading and making executable the speedtest-cli Python script..."
+        curl -Lo speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
+        chmod +x speedtest-cli
     else
-        echo "Speedtest by Ookla is already installed."
+        echo "speedtest-cli Python script is already installed."
     fi
 fi
-
-
 
 # Define results file
 results_file="speedtest_results_summary.txt"
