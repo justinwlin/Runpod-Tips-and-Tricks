@@ -106,7 +106,7 @@ perform_speedtest_and_log() {
     # Run speedtest-cli and append the output directly to the results file
     echo "-------------------------------------------------" >> "$results_file"
     echo "Testing server ID: $server_id" >> "$results_file"
-    speedtest-cli --server $server_id >> "$results_file"
+    ./speedtest-cli --server $server_id >> "$results_file"
     echo "-------------------------------------------------" >> "$results_file"
 }
 
