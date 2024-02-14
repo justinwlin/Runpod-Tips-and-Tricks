@@ -4,6 +4,8 @@ Why run this script? It is hard to debug a networking problem cause it can eithe
 
 If the speed is really slow on one of the sources you can use flags to skip that source and test the other sources. I do recommend at minimum test the speed-test-cli and a couple of the other download file sources.
 
+The test actually **will max out downloads at 5 minutes though and still capture information** so there is no need to skip it if you just wait for 5 minutes, but it is jus tan option.
+
 ## Options
 No flag provided will auto run the whole script
 ```
@@ -16,11 +18,12 @@ Options:
   -c, --civitai             Download from Civitai and log the speed.
   -f, --huggingface         Download from Hugging Face and log the speed.
   -3, --s3                  Perform S3 parallel download test and log the speed.
+  -b, --broadband-test      Test download speed using a broadband test file.
   -a, --all                 Run the entire script (default if no option is provided).
 
 Example:
-  test.sh -p -s -c -f            Update packages, perform speed tests, and download from Civitai and Hugging Face.
-  test.sh --all                  Run the entire script.
+  speed.sh -p -s -c -f -b         Update packages, perform speed tests, download from Civitai, Hugging Face, and test broadband download speed.
+  speed.sh --all                  Run the entire script.
 ```
 
 ## What the script will do
