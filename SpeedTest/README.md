@@ -27,6 +27,8 @@ bash speed_test.sh
 ```
 
 ## Example Results for Comparison
+
+### Example 1
 Example Speed Test Results:
 This is on a CPU POD:
 ```
@@ -79,5 +81,206 @@ Downloaded Size: 1250000000 bytes
 
  Download Speed: 11811998 bytes/sec
 Downloaded Size: 1250000001 bytes
+-------------------------------------------------
+```
+
+Example 2:
+```
+RUNPOD_POD_ID: 7s1w09qsovkgds
+RUNPOD_PUBLIC_IP: 213.173.105.83
+RUNPOD_DC_ID: EU-RO-1
+-------------------------------------------------
+Server ID, Server Name, Download, Upload
+-------------------------------------------------
+Testing server ID: 47074
+Retrieving speedtest.net configuration...
+Testing from EVOBITS Information Technology SRL (213.173.105.83)...
+Retrieving speedtest.net server list...
+Retrieving information for the selected server...
+Hosted by ISP INFO-CENTR (Tyachiv) [249.26 km]: 1800000.0 ms
+Testing download speed................................................................................
+Download: 0.00 Mbit/s
+Testing upload speed......................................................................................................
+Upload: 0.00 Mbit/s
+-------------------------------------------------
+-------------------------------------------------
+Testing server ID: 24567
+Retrieving speedtest.net configuration...
+Testing from EVOBITS Information Technology SRL (213.173.105.83)...
+Retrieving speedtest.net server list...
+Retrieving information for the selected server...
+Hosted by Djemba IT&C (Arad) [284.90 km]: 18.097 ms
+Testing download speed................................................................................
+Download: 726.12 Mbit/s
+Testing upload speed......................................................................................................
+Upload: 573.29 Mbit/s
+-------------------------------------------------
+-------------------------------------------------
+Testing server ID: 49368
+Retrieving speedtest.net configuration...
+Testing from EVOBITS Information Technology SRL (213.173.105.83)...
+Retrieving speedtest.net server list...
+Retrieving information for the selected server...
+Hosted by Cnetwork (Curtici) [286.70 km]: 23.405 ms
+Testing download speed................................................................................
+Download: 658.50 Mbit/s
+Testing upload speed......................................................................................................
+Upload: 438.71 Mbit/s
+-------------------------------------------------
+-------------------------------------------------
+Testing server ID: 55778
+Retrieving speedtest.net configuration...
+Testing from EVOBITS Information Technology SRL (213.173.105.83)...
+Retrieving speedtest.net server list...
+Retrieving information for the selected server...
+Hosted by DVS-Sat LLC (Mukachevo) [322.69 km]: 46.699 ms
+Testing download speed................................................................................
+Download: 652.42 Mbit/s
+Testing upload speed......................................................................................................
+Upload: 408.58 Mbit/s
+-------------------------------------------------
+-------------------------------------------------
+Testing server ID: 23082
+Retrieving speedtest.net configuration...
+Testing from EVOBITS Information Technology SRL (213.173.105.83)...
+Retrieving speedtest.net server list...
+Retrieving information for the selected server...
+Hosted by Naracom Kft. (Kisvárda) [330.95 km]: 21.829 ms
+Testing download speed................................................................................
+Download: 1903.08 Mbit/s
+Testing upload speed......................................................................................................
+Upload: 904.52 Mbit/s
+-------------------------------------------------
+Downloading file from: https://civitai.com/api/download/models/272376?type=Model&format=SafeTensor&size=pruned&fp=fp16
+Download Speed: 42203354 bytes/sec
+Downloaded Size: 2132650982 bytes
+-------------------------------------------------
+Downloading file from: https://huggingface.co/TheBloke/falcon-7b-instruct-GGML/resolve/main/falcon-7b-instruct.ggccv1.q4_1.bin --output falcon-7b-instruct.ggccv1.q4_1.bin
+Download Speed: 121905686 bytes/sec
+Downloaded Size: 4513676672 bytes
+-------------------------------------------------
+Testing download speed from: https://netspresso-research-code-release.s3.us-east-2.amazonaws.com/data/improved_aesthetics_6.25plus/preprocessed_2256k.tar.gz (Thread Number: 2)
+Testing download speed from: https://netspresso-research-code-release.s3.us-east-2.amazonaws.com/data/improved_aesthetics_6.25plus/preprocessed_2256k.tar.gz (Thread Number: 1)
+Testing download speed from: https://netspresso-research-code-release.s3.us-east-2.amazonaws.com/data/improved_aesthetics_6.25plus/preprocessed_2256k.tar.gz (Thread Number: 4)
+Testing download speed from: https://netspresso-research-code-release.s3.us-east-2.amazonaws.com/data/improved_aesthetics_6.25plus/preprocessed_2256k.tar.gz (Thread Number: 3)
+
+ Download Speed: 22156194 bytes/sec
+Downloaded Size: 1250000000 bytes
+-------------------------------------------------
+
+ Download Speed: 19921939 bytes/sec
+Downloaded Size: 1250000000 bytes
+-------------------------------------------------
+
+ Download Speed: 18935497 bytes/sec
+Downloaded Size: 1250000001 bytes
+-------------------------------------------------
+
+ Download Speed: 15793836 bytes/sec
+Downloaded Size: 1250000000 bytes
+-------------------------------------------------
+
+```
+
+### Example 2
+This is a CPU Pod:
+```
+797 Download
+894 Upload
+```
+
+```
+RUNPOD_POD_ID: 7s1w09qsovkgds
+RUNPOD_PUBLIC_IP: 213.173.105.83
+RUNPOD_DC_ID: EU-RO-1
+-------------------------------------------------
+Server ID, Server Name, Download, Upload
+-------------------------------------------------
+Testing server ID: 47074
+Retrieving speedtest.net configuration...
+Testing from EVOBITS Information Technology SRL (213.173.105.83)...
+Retrieving speedtest.net server list...
+Retrieving information for the selected server...
+Hosted by ISP INFO-CENTR (Tyachiv) [249.26 km]: 1800000.0 ms
+Testing download speed................................................................................
+Download: 0.00 Mbit/s
+Testing upload speed......................................................................................................
+Upload: 0.00 Mbit/s
+-------------------------------------------------
+-------------------------------------------------
+Testing server ID: 24567
+Retrieving speedtest.net configuration...
+Testing from EVOBITS Information Technology SRL (213.173.105.83)...
+Retrieving speedtest.net server list...
+Retrieving information for the selected server...
+Hosted by Djemba IT&C (Arad) [284.90 km]: 18.097 ms
+Testing download speed................................................................................
+Download: 726.12 Mbit/s
+Testing upload speed......................................................................................................
+Upload: 573.29 Mbit/s
+-------------------------------------------------
+-------------------------------------------------
+Testing server ID: 49368
+Retrieving speedtest.net configuration...
+Testing from EVOBITS Information Technology SRL (213.173.105.83)...
+Retrieving speedtest.net server list...
+Retrieving information for the selected server...
+Hosted by Cnetwork (Curtici) [286.70 km]: 23.405 ms
+Testing download speed................................................................................
+Download: 658.50 Mbit/s
+Testing upload speed......................................................................................................
+Upload: 438.71 Mbit/s
+-------------------------------------------------
+-------------------------------------------------
+Testing server ID: 55778
+Retrieving speedtest.net configuration...
+Testing from EVOBITS Information Technology SRL (213.173.105.83)...
+Retrieving speedtest.net server list...
+Retrieving information for the selected server...
+Hosted by DVS-Sat LLC (Mukachevo) [322.69 km]: 46.699 ms
+Testing download speed................................................................................
+Download: 652.42 Mbit/s
+Testing upload speed......................................................................................................
+Upload: 408.58 Mbit/s
+-------------------------------------------------
+-------------------------------------------------
+Testing server ID: 23082
+Retrieving speedtest.net configuration...
+Testing from EVOBITS Information Technology SRL (213.173.105.83)...
+Retrieving speedtest.net server list...
+Retrieving information for the selected server...
+Hosted by Naracom Kft. (Kisvárda) [330.95 km]: 21.829 ms
+Testing download speed................................................................................
+Download: 1903.08 Mbit/s
+Testing upload speed......................................................................................................
+Upload: 904.52 Mbit/s
+-------------------------------------------------
+Downloading file from: https://civitai.com/api/download/models/272376?type=Model&format=SafeTensor&size=pruned&fp=fp16
+Download Speed: 42203354 bytes/sec
+Downloaded Size: 2132650982 bytes
+-------------------------------------------------
+Downloading file from: https://huggingface.co/TheBloke/falcon-7b-instruct-GGML/resolve/main/falcon-7b-instruct.ggccv1.q4_1.bin --output falcon-7b-instruct.ggccv1.q4_1.bin
+Download Speed: 121905686 bytes/sec
+Downloaded Size: 4513676672 bytes
+-------------------------------------------------
+Testing download speed from: https://netspresso-research-code-release.s3.us-east-2.amazonaws.com/data/improved_aesthetics_6.25plus/preprocessed_2256k.tar.gz (Thread Number: 2)
+Testing download speed from: https://netspresso-research-code-release.s3.us-east-2.amazonaws.com/data/improved_aesthetics_6.25plus/preprocessed_2256k.tar.gz (Thread Number: 1)
+Testing download speed from: https://netspresso-research-code-release.s3.us-east-2.amazonaws.com/data/improved_aesthetics_6.25plus/preprocessed_2256k.tar.gz (Thread Number: 4)
+Testing download speed from: https://netspresso-research-code-release.s3.us-east-2.amazonaws.com/data/improved_aesthetics_6.25plus/preprocessed_2256k.tar.gz (Thread Number: 3)
+
+ Download Speed: 22156194 bytes/sec
+Downloaded Size: 1250000000 bytes
+-------------------------------------------------
+
+ Download Speed: 19921939 bytes/sec
+Downloaded Size: 1250000000 bytes
+-------------------------------------------------
+
+ Download Speed: 18935497 bytes/sec
+Downloaded Size: 1250000001 bytes
+-------------------------------------------------
+
+ Download Speed: 15793836 bytes/sec
+Downloaded Size: 1250000000 bytes
 -------------------------------------------------
 ```
