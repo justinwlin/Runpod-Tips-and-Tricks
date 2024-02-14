@@ -68,12 +68,18 @@ if [ -z "$package_update_flag" ] && [ -z "$speedtest_flag" ] && [ -z "$civitai_d
 fi
 
 # Install relevant packages
+# Install relevant packages
 if [ "$package_update_flag" == true ] || [ "$all_flag" == true ]; then
     echo "Updating package lists..."
     apt-get update
     # Check if speedtest-cli is installed and install if not
     if ! command -v speedtest-cli &> /dev/null; then
         echo "Installing speedtest-cli..."
+        # Before installing speedtest-cli, check for and handle the existing speedtest package
+        if dpkg -l | grep -qw speedtest; then
+            echo "Trying to remove existing 'speedtest' package to avoid conflicts..."
+            apt-get remove -y speedtest
+        fi
         apt-get install -y speedtest-cli
     else
         echo "speedtest-cli is already installed."
@@ -82,6 +88,7 @@ if [ "$package_update_flag" == true ] || [ "$all_flag" == true ]; then
     echo "Installing curl..."
     apt-get install -y curl
 fi
+
 
 # Define results file
 results_file="speedtest_results_summary.txt"
