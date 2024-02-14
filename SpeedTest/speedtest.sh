@@ -7,7 +7,8 @@ show_help() {
     echo "Options:"
     echo "  -h, --help                Show this help message and exit."
     echo "  -p, --package-update      Update package lists and install required packages."
-    echo "  -s, --speedtest           Perform speed tests with specified server IDs."
+    echo "  -s, --speedtest-cli       Perform speed tests with specified server IDs using speedtest-cli."
+    echo "  -o, --ookla-speedtest     Perform speed tests using Ookla's Speedtest CLI."
     echo "  -c, --civitai             Download from Civitai and log the speed."
     echo "  -f, --huggingface         Download from Hugging Face and log the speed."
     echo "  -3, --s3                  Perform S3 parallel download test and log the speed."
@@ -15,7 +16,7 @@ show_help() {
     echo "  -a, --all                 Run the entire script (default if no option is provided)."
     echo ""
     echo "Example:"
-    echo "  $0 -p -s -c -f -b         Update packages, perform speed tests, download from Civitai, Hugging Face, and test broadband download speed."
+    echo "  $0 -p -o -c -f -b         Update packages, perform Ookla speed tests, download from Civitai, Hugging Face, and test broadband download speed."
     echo "  $0 --all                  Run the entire script."
 }
 
@@ -30,8 +31,8 @@ while [[ $# -gt 0 ]]; do
             package_update_flag=true
             shift
             ;;
-        -s|--speedtest)
-            speedtest_flag=true
+        -s|--speedtest-cli)
+            speedtest_cli_flag=true
             shift
             ;;
         -c|--civitai)
@@ -98,18 +99,6 @@ write_env_to_file() {
     echo "-------------------------------------------------" >> "$results_file"
 }
 
-# Function to perform speed test and parse results
-perform_speedtest_and_log() {
-    local server_id=$1
-    local results_file=$2
-
-    # Run speedtest-cli and append the output directly to the results file
-    echo "-------------------------------------------------" >> "$results_file"
-    echo "Testing server ID: $server_id" >> "$results_file"
-    ./speedtest-cli --server $server_id >> "$results_file"
-    echo "-------------------------------------------------" >> "$results_file"
-}
-
 # Function to download a file and measure speed
 download_file_and_log_speed() {
     local url=$1
@@ -137,6 +126,18 @@ broadband_test_download() {
     download_file_and_log_speed $download_url $results_file
 }
 
+# Function to perform speed test and parse results
+perform_speedtest_and_log() {
+    local server_id=$1
+    local results_file=$2
+
+    # Run speedtest-cli and append the output directly to the results file
+    echo "-------------------------------------------------" >> "$results_file"
+    echo "Testing server ID: $server_id" >> "$results_file"
+    ./speedtest-cli --server $server_id >> "$results_file"
+    echo "-------------------------------------------------" >> "$results_file"
+}
+
 perform_parallel_download_test() {
     local url=$1
     local start_range=$2
@@ -158,12 +159,11 @@ perform_parallel_download_test() {
     echo "-------------------------------------------------" >> "$results_file"
 }
 
-
 # Conditional execution based on flags for civitai, huggingface, and s3 downloads
 write_env_to_file
 
 # Speed Test
-if [ "$speedtest_flag" == true ] || [ "$all_flag" == true ]; then
+if [ "$speedtest_cli_flag" == true ] || [ "$all_flag" == true ]; then
     # Prepare results file
     echo "Server ID, Server Name, Download, Upload" >> "$results_file"
     # Define server IDs
