@@ -3,7 +3,6 @@
 # Install relevant packages
 echo "Updating package lists..."
 apt-get update
-
 # Check if speedtest-cli is installed and install if not
 if ! command -v speedtest-cli &> /dev/null; then
     echo "Installing speedtest-cli..."
@@ -11,8 +10,9 @@ if ! command -v speedtest-cli &> /dev/null; then
 else
     echo "speedtest-cli is already installed."
 fi
-
-apt-get install curl
+# Auto-yes the installation of curl
+echo "Installing curl..."
+apt-get install -y curl
 
 # Define results file
 results_file="speedtest_results_summary.txt"
