@@ -167,7 +167,7 @@ if [ "$speedtest_cli_flag" == true ] || [ "$all_flag" == true ]; then
     # Prepare results file
     echo "Server ID, Server Name, Download, Upload" >> "$results_file"
     # Define server IDs
-    server_ids=$(./speedtest-cli --list | grep -o '^[ ]*[0-9]*' | head -n 5)
+    server_ids=$(./speedtest-cli --list | grep -o '^[ ]*[0-9]*' | head -n 6)
     # Call function to perform speed test and parse results
     for server_id in $server_ids; do
         perform_speedtest_and_log $server_id $results_file
