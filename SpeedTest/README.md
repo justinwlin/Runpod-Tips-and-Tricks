@@ -9,21 +9,23 @@ The test actually **will max out downloads at 5 minutes for every request and st
 ## Options
 No flag provided will auto run the whole script
 ```
-Usage: test.sh [options]
-
-Options:
-  -h, --help                Show this help message and exit.
-  -p, --package-update      Update package lists and install required packages.
-  -s, --speedtest           Perform speed tests with specified server IDs.
-  -c, --civitai             Download from Civitai and log the speed.
-  -f, --huggingface         Download from Hugging Face and log the speed.
-  -3, --s3                  Perform S3 parallel download test and log the speed.
-  -b, --broadband-test      Test download speed using a broadband test file.
-  -a, --all                 Run the entire script (default if no option is provided).
-
-Example:
-  speed.sh -p -s -c -f -b         Update packages, perform speed tests, download from Civitai, Hugging Face, and test broadband download speed.
-  speed.sh --all                  Run the entire script.
+show_help() {
+    echo "Usage: $0 [options]"
+    echo ""
+    echo "Options:"
+    echo "  -h, --help                Show this help message and exit."
+    echo "  -p, --package-update      Update package lists and install required packages."
+    echo "  -s, --speedtest-cli       Perform speed tests with specified server IDs using speedtest-cli which tests against speedtest.net"
+    echo "  -c, --civitai             Download from Civitai and log the speed."
+    echo "  -f, --huggingface         Download from Hugging Face and log the speed."
+    echo "  -3, --s3                  Perform S3 parallel download test and log the speed."
+    echo "  -b, --broadband-test      Test download speed using a broadband test file."
+    echo "  -a, --all                 Run the entire script (default if no option is provided)."
+    echo ""
+    echo "Example:"
+    echo "  $0 -p -c -f -b         Update packages, download from Civitai, Hugging Face, and test broadband download speed."
+    echo "  $0 --all                  Run the entire script."
+}
 ```
 
 ## What the script will do
