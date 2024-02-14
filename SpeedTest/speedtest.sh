@@ -1,5 +1,19 @@
 #!/bin/bash
 
+# Install relevant packages
+echo "Updating package lists..."
+apt-get update
+
+# Check if speedtest-cli is installed and install if not
+if ! command -v speedtest-cli &> /dev/null; then
+    echo "Installing speedtest-cli..."
+    apt-get install -y speedtest-cli
+else
+    echo "speedtest-cli is already installed."
+fi
+
+apt-get install curl
+
 # Define results file
 results_file="speedtest_results_summary.txt"
 
