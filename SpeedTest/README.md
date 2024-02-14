@@ -43,6 +43,8 @@ S3 Bucket Link is a link I used in the past for an ML dataset, hopefully the aut
 
 HuggingFace can sometimes have issues, but this link I imagine should stay stable. Is always worth sanity checking if my script throws out weird errors like unable to download if the urls have become invalid.
 
+Broadband should hopefully stay stable
+
 ## How to Run
 Copy and paste the script as a .sh script onto your machine.
 
