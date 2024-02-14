@@ -4,7 +4,7 @@ Why run this script? It is hard to debug a networking problem cause it can eithe
 
 If the speed is really slow on one of the sources you can use flags to skip that source and test the other sources. I do recommend at minimum test the speed-test-cli and a couple of the other download file sources.
 
-The test actually **will max out downloads at 5 minutes though and still capture information** so there is no need to skip it if you just wait for 5 minutes, but it is jus tan option.
+The test actually **will max out downloads at 5 minutes for every request and still capture information** so there is no need to skip it if you just wait for 5 minutes, but it is just an option. You don't need to worry about if you need to sit here the whole time waiting for it to finish.
 
 ## Options
 No flag provided will auto run the whole script
