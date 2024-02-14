@@ -5,6 +5,7 @@ Why run this script? It is hard to debug a networking problem cause it can eithe
 If the speed is really slow on one of the sources you can use flags to skip that source and test the other sources. I do recommend at minimum test the speed-test-cli and a couple of the other download file sources.
 
 ## Options
+No flag provided will auto run the whole script
 ```
 Usage: test.sh [options]
 
