@@ -34,6 +34,7 @@ Run speed tests + run a variety of models + dump your ID of your Runpod so that 
 2. Downloads a model from civitai ~ 2GB
 3. Downloads a model from hugging face ~ 4.2GB
 3. Downloads 5GB from a 200GB model on S3 Bucket using parallel curl requests
+5. Download a 1GB file from broadband
 
 ## Potential Future Issues
 Civitai authors ocassionally require an auth token to download a model, but I tried to find one that doesn't have that issue.
