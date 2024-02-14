@@ -11,10 +11,11 @@ show_help() {
     echo "  -c, --civitai             Download from Civitai and log the speed."
     echo "  -f, --huggingface         Download from Hugging Face and log the speed."
     echo "  -3, --s3                  Perform S3 parallel download test and log the speed."
+    echo "  -b, --broadband-test      Test download speed using a broadband test file."
     echo "  -a, --all                 Run the entire script (default if no option is provided)."
     echo ""
     echo "Example:"
-    echo "  $0 -p -s -c -f            Update packages, perform speed tests, and download from Civitai and Hugging Face."
+    echo "  $0 -p -s -c -f -b         Update packages, perform speed tests, download from Civitai, Hugging Face, and test broadband download speed."
     echo "  $0 --all                  Run the entire script."
 }
 
@@ -47,6 +48,10 @@ while [[ $# -gt 0 ]]; do
             ;;
         -a|--all)
             all_flag=true
+            shift
+            ;;
+        -b|--broadband-test)
+            broadband_test_flag=true
             shift
             ;;
         *)
@@ -104,11 +109,27 @@ perform_speedtest_and_log() {
 download_file_and_log_speed() {
     local url=$1
     local results_file=$2
+    local max_time=300 # Maximum time in seconds for the download
     
-    # Use curl to download the file and directly append the speed and size to the results file
+    # Log the download initiation
     echo "Downloading file from: $url" >> "$results_file"
-    curl -o /dev/null -L $url -w "Download Speed: %{speed_download} bytes/sec\nDownloaded Size: %{size_download} bytes\n" >> "$results_file"
+    
+    # Use curl to download the file with a timeout, and log the average speed and size
+    curl -o /dev/null -L $url --max-time $max_time \
+    -w "Download Speed: %{speed_download} bytes/sec\nDownloaded Size: %{size_download} bytes\nElapsed Time: %{time_total} seconds\n" >> "$results_file"
+    
+    # Check if the download was capped by --max-time
+    if [ $? -eq 28 ]; then
+        echo "Download was terminated after $max_time seconds due to timeout." >> "$results_file"
+    fi
+    
+    # Log a separator for readability
     echo "-------------------------------------------------" >> "$results_file"
+}
+
+broadband_test_download() {
+    local download_url="http://ipv4.download.thinkbroadband.com/1GB.zip"
+    download_file_and_log_speed $download_url $results_file
 }
 
 perform_parallel_download_test() {
@@ -117,12 +138,21 @@ perform_parallel_download_test() {
     local end_range=$3
     local results_file=$4
     local thread_number=$5
-    
+    local max_time=300 # Set the maximum time for the download in seconds
+
     # Use curl to download the file and directly append the speed and size to the results file
     echo "Testing download speed from: $url (Thread Number: $thread_number)" >> "$results_file"
-    curl -o /dev/null --max-filesize 5000000000 -L $url -r $start_range-$end_range -w "\n Download Speed: %{speed_download} bytes/sec\nDownloaded Size: %{size_download} bytes\n" >> "$results_file"
+    curl -o /dev/null --max-time $max_time --max-filesize 5000000000 -L $url -r $start_range-$end_range \
+    -w "\n Download Speed: %{speed_download} bytes/sec\nDownloaded Size: %{size_download} bytes\nElapsed Time: %{time_total} seconds\n" >> "$results_file"
+    
+    # Check if the download was terminated due to timeout
+    if [ $? -eq 28 ]; then
+        echo "Download was terminated after $max_time seconds due to timeout (Thread Number: $thread_number)." >> "$results_file"
+    fi
+
     echo "-------------------------------------------------" >> "$results_file"
 }
+
 
 # Conditional execution based on flags for civitai, huggingface, and s3 downloads
 write_env_to_file
@@ -151,6 +181,11 @@ if [ "$huggingface_download_flag" == true ] || [ "$all_flag" == true ]; then
     download_url_huggingface="https://huggingface.co/TheBloke/falcon-7b-instruct-GGML/resolve/main/falcon-7b-instruct.ggccv1.q4_1.bin"
     # Call download function for Hugging Face
     download_file_and_log_speed $download_url_huggingface $results_file
+fi
+
+# Broadband file download
+if [ "$broadband_test_flag" == true ] || [ "$all_flag" == true ]; then
+    broadband_test_download
 fi
 
 # S3 parallel download test
