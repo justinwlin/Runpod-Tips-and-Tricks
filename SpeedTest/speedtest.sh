@@ -16,7 +16,7 @@ show_help() {
     echo "  -a, --all                 Run the entire script (default if no option is provided)."
     echo ""
     echo "Example:"
-    echo "  $0 -p -o -c -f -b         Update packages, perform Ookla speed tests, download from Civitai, Hugging Face, and test broadband download speed."
+    echo "  $0 -p -c -f -b         Update packages, download from Civitai, Hugging Face, and test broadband download speed."
     echo "  $0 --all                  Run the entire script."
 }
 
