@@ -13,6 +13,7 @@ show_help() {
     echo "  -3, --s3                  Perform S3 parallel download test and log the speed."
     echo "  -b, --broadband-test      Test download speed using a broadband test file."
     echo "  -a, --all                 Run the entire script (default if no option is provided)."
+    echo "  -g, --google-ping         Perform a ping test to google.com."
     echo ""
     echo "Example:"
     echo "  $0 -p -c -f -b         Update packages, download from Civitai, Hugging Face, and test broadband download speed."
@@ -52,6 +53,10 @@ while [[ $# -gt 0 ]]; do
             ;;
         -b|--broadband-test)
             broadband_test_flag=true
+            shift
+            ;;
+        -g|--google-ping)
+            google_ping_flag=true
             shift
             ;;
         *)
@@ -107,6 +112,16 @@ write_env_to_file() {
     echo "RUNPOD_POD_ID: ${RUNPOD_POD_ID:-'does not exist'}" > "$results_file"
     echo "RUNPOD_PUBLIC_IP: ${RUNPOD_PUBLIC_IP:-'does not exist'}" >> "$results_file"
     echo "RUNPOD_DC_ID: ${RUNPOD_DC_ID:-'does not exist'}" >> "$results_file"
+    echo "-------------------------------------------------" >> "$results_file"
+}
+
+# Function to perform a ping test to google.com
+ping_google() {
+    local results_file=$1
+
+    echo "-------------------------------------------------" >> "$results_file"
+    echo "Pinging google.com (Sanity check)..." >> "$results_file"
+    ping -c 5 google.com >> "$results_file"
     echo "-------------------------------------------------" >> "$results_file"
 }
 
@@ -184,6 +199,11 @@ perform_parallel_download_test() {
 
 # Conditional execution based on flags for civitai, huggingface, and s3 downloads
 write_env_to_file
+
+# Google ping test
+if [ "$google_ping_flag" == true ] || [ "$all_flag" == true ]; then
+    ping_google $results_file
+fi
 
 # Speed Test
 if [ "$speedtest_cli_flag" == true ] || [ "$all_flag" == true ]; then
