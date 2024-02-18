@@ -3,12 +3,12 @@ This is a guide to help you either: set up ssh on your pod (either to connect vs
 
 # Croc / Runpodctl Relay Servers
 
-Runpodctl has an easy way to send files; the issue is they use custom relay servers meaning that it can get bottlenecked so heavily where your transfer rate drops below 1Mbps. 
+Runpodctl has an easy way to send files; the issue is they use custom relay servers meaning that it can get bottlenecked so heavily where your transfer rate drops below 1Mbps due to the amount of people transfering data through runpod.
 
 
 https://github.com/runpod/runpodctl
 
-If you just use the underlying library they have directly, you can send files from your computer and between pods easily at a fast rate. And the setup is minimal. 
+You can instead just use the underlying library they have directly, you can send files from your computer and between pods easily at a fast rate using a relay provided by croc. And the setup is minimal. 
 
 The library they use is crocs.
 https://github.com/schollz/croc
