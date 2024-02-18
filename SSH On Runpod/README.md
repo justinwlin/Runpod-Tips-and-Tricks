@@ -1,6 +1,5 @@
 # Summary
-
-There are multiple ways to send files to and from Runpod. Either using a Relay server using (runpodctl or croc) or SSH/SCP. This is a repo explaining all of that.
+This is a guide to help you either: set up ssh on your pod (either to connect vscode or whatever you want to do), or on how to transfer files between you and your computer, or pod to pod.
 
 # Croc / Runpodctl Relay Servers
 
