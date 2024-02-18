@@ -10,8 +10,7 @@ https://github.com/runpod/runpodctl
 
 If you just use the underlying library they have directly, you can send files from your computer and between pods easily at a fast rate. And the setup is minimal. 
 
-Why not use it then? B/c at the end of the day, if you have the option to do TCP connection + SCP, it will be a direct connection vs through another server.
-
+The library they use is crocs.
 https://github.com/schollz/croc
 ```
 curl https://getcroc.schollz.com | bash
@@ -23,6 +22,9 @@ Sending 'file-or-folder' (X MB)
 Code is: code-phrase
 ```
 
+So why consider a different alternative? If you use SSH/SCP which I talk about below for file transfers you have a direct transfer connection computer to computer vs moving data in between another computer. 
+
+However croc / runpodctl does allow way easier setup + also if one of the computers may not allow ssh / tcp.
 
 # SSH On Runpod
 
