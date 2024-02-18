@@ -50,6 +50,11 @@ If you are using a custom container, you can install OpenSSH. You can see how in
 
 # Setting up SSH
 
+## Why do this?
+- SCP
+- Connect to [VSCode](https://blog.runpod.io/how-to-connect-vscode-to-runpod/)
+  - Going through this solves the first part of the article asking you to create public/private key pairing.
+
 ## Option 1: Using Runpod's Pip Package for SSH using Public / Private Keys
 > This only works for **FUTURE PODS** that you create, not any existing pods. If you have an existing pod you must SSH onto, use Option 2.
 
@@ -84,6 +89,8 @@ To connect to your pod in the future, simply use:
 ```
 runpod pod connect [YOUR_POD_ID_HERE]
 ```
+
+Or use the command that the Runpod **connect** button tells you and you can run that in your terminal too. If you are setting up [VSCode](https://blog.runpod.io/how-to-connect-vscode-to-runpod/) you have now essentially done the first point in the article, asking you to set up public / private keys.
 
 # Transfering Files using SSH
 
