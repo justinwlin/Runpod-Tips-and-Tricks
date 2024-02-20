@@ -91,7 +91,16 @@ To connect to your pod in the future, simply use:
 runpod pod connect [YOUR_POD_ID_HERE]
 ```
 
-Or use the command that the Runpod **connect** button tells you and you can run that in your terminal too. If you are setting up [VSCode](https://blog.runpod.io/how-to-connect-vscode-to-runpod/) you have now essentially done the first point in the article, asking you to set up public / private keys.
+Note: You can also once done use:
+```
+cp ~/.runpod/ssh/RunPod-Key ~/.ssh/id_ed25519
+
+cp ~/.runpod/ssh/<Replace this with what your key is called> ~/.ssh/id_ed25519
+```
+
+This will allow you to follow the SSH connect command that runpod often gives you when you click the connect button, since Runpod often tries to find the ssh key named that way under that folder and name structure.
+
+If you are setting up [VSCode](https://blog.runpod.io/how-to-connect-vscode-to-runpod/) you have now essentially done the first point in the article, asking you to set up public / private keys.
 
 # Transfering Files using SSH
 
