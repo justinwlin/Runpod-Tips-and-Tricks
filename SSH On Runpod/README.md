@@ -83,6 +83,8 @@ Step 3: Add an SSH Key
 runpod ssh add-key
 ```
 
+This creates a private/public key pair that is found under `~/.runpod/ssh/` if you ever need to refer to the private key for a ssh command.
+
 Step 4: Connecting to Your Pod
 
 To connect to your pod in the future, simply use:
