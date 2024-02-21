@@ -160,6 +160,8 @@ cat /workspace/root_password.txt
 
 # Transfering Files between two pods
 
+> Make sure as always to zip files up so that you are sending over one large file rather than many small ones.
+
 With Madiator's setup in Option 2, you can setup a password on both pods.
 
 Then you can just use the `scp` or `ssh` command to connect to the other pod, assuming both pods have passwords setup. It will ask you. 
