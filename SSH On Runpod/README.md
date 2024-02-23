@@ -1,6 +1,14 @@
 # Summary
 This is a guide to help you either: set up ssh on your pod (either to connect vscode or whatever you want to do), or on how to transfer files between you and your computer, or pod to pod.
 
+# Use TMUX
+**IF YOU ARE RUNNING ANY SORT OF LONG RUNNING JOB IN TERMINAL OR JUPYTER NOTEBOOK** USE TMUX instead. Jupyter notebook can inherently crash during training, running, downloading, etc. And downloading models through terminal, just for it to crash, sucks! So use TMUX!! You have been warned cause this does happen all the time even to me. So TMUX will save you from these issues.
+
+Ask [Perplexity AI](https://www.perplexity.ai/), ChatGPT, or [Phind](https://www.phind.com/search?home=true) if you need help figuring out TMUX if the YT video isn't clear enough already.
+
+[](https://youtu.be/nTqu6w2wc68?si=u_850Bsu91xuNftb)
+](https://youtu.be/nTqu6w2wc68?si=u_850Bsu91xuNftb)
+
 # Croc / Runpodctl Relay Servers
 
 Runpodctl has an easy way to send files; the issue is they use custom relay servers meaning that it can get bottlenecked so heavily where your transfer rate drops below 1Mbps due to the amount of people transfering data through runpod.
