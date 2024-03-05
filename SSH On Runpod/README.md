@@ -122,6 +122,7 @@ ssh root@213.173.105.83 -p 11817 -i ~/.ssh/id_ed25519
 ```
 
 You can use this command as a basis to SCP:
+Run the following commands from your terminal / command prompt. You do not need to have SSHed into your pod already, as SCP will establish the SSH connection when you run the command.
 
 Sending a file to Pod:
 ```
