@@ -46,7 +46,6 @@ wormhole send ~/path/to/file
 wormhole receive codeXYZ
 ```
 
-
 # SSH On Runpod
 
 ## Overview
