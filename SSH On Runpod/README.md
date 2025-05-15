@@ -34,6 +34,19 @@ So why consider a different alternative? If you use SSH/SCP which I talk about b
 
 However croc / runpodctl does allow way easier setup + also if one of the computers may not allow ssh / tcp.
 
+# SendMe / Wormhole
+A couple of other great alternatives that I like to use is, which I believe are Peer to Peer, thus avoiding a relay server.
+(Requires Cargo)
+https://github.com/n0-computer/sendme
+
+Wormhole
+```
+apt install magic-wormhole
+wormhole send ~/path/to/file
+wormhole receive codeXYZ
+```
+
+
 # SSH On Runpod
 
 ## Overview
