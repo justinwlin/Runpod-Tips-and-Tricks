@@ -113,12 +113,15 @@ To connect to your pod in the future, simply use:
 runpod pod connect [YOUR_POD_ID_HERE]
 ```
 
-Note: You can also once done use:
-```
-cp ~/.runpod/ssh/RunPod-Key ~/.ssh/id_ed25519
+Another way to do it, is that the `runpod ssh add-key` seems to generate an RSA key, which doesn't seem to act friendly with Runpod's commands for SSH if you wanted VSCode.
 
-cp ~/.runpod/ssh/<Replace this with what your key is called> ~/.ssh/id_ed25519
-```
+I recommend for that to do:
+https://blog.runpod.io/how-to-set-up-terminal-access-on-runpod/?ref=blog.runpod.io
+
+The only difference in this tutorial is that the place to add the SSH key you generate through this tutorial is now under:
+Settings on the Left > SSH Public Keys Scroll Down > Paste in your key that you got from: `cat ~/.ssh/id_ed25519.pub` and make sure to **SAVE**. Then start up a new pod.
+
+In the Pod's environment variable you should see the new key.
 
 This will allow you to follow the SSH connect command that runpod often gives you when you click the connect button, since Runpod often tries to find the ssh key named that way under that folder and name structure.
 
