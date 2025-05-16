@@ -125,6 +125,10 @@ In the Pod's environment variable you should see the new key.
 
 This will allow you to follow the SSH connect command that runpod often gives you when you click the connect button, since Runpod often tries to find the ssh key named that way under that folder and name structure.
 
+Note be careful if you are trying to connect to VSCode do the SSH Over exposed for TCP and not just the normal SSH (since that has no support for SCP & SFTP):
+TCP Example Command, it will have `root@...` in the Runpod GUI online.
+
+`ssh root@203.57.40.188 -p 10211 -i ~/.ssh/id_ed25519`
 If you are setting up [VSCode](https://blog.runpod.io/how-to-connect-vscode-to-runpod/) you have now essentially done the first point in the article, asking you to set up public / private keys.
 
 # Transfering Files using SSH
